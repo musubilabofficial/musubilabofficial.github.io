@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解読者の声 - 結 -MUSUBI-</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap');
+        :root { --indigo: #0A192F; --gold: #D4AF37; --gold-light: rgba(212, 175, 55, 0.15); --text: #F5F5F5; --white-glass: rgba(255, 255, 255, 0.05); --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--indigo); color: var(--text); font-family: 'Shippori Mincho', serif; line-height: 1.8; overflow-x: hidden; }
+        header { position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: linear-gradient(to bottom, rgba(10, 25, 47, 0.8), transparent); backdrop-filter: blur(5px); }
+        .logo { font-size: 1.5rem; letter-spacing: 0.3rem; color: var(--gold); font-weight: bold; text-decoration: none; white-space: nowrap; }
+        .nav-menu { display: flex; align-items: center; }
+        .nav-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; margin-left: 30px; opacity: 0.7; transition: var(--transition); }
+        .nav-menu a:hover { opacity: 1; color: var(--gold); }
+        .highlight { color: var(--gold); font-weight: bold; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 101; }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--gold); }
+
+        .hero-subpage { height: 50vh; background: linear-gradient(rgba(10, 25, 47, 0.6), rgba(10, 25, 47, 0.6)), url('image/Voices.png'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
+        .page-title { font-size: clamp(2rem, 5vw, 3rem); color: var(--gold); letter-spacing: 0.5rem; margin-bottom: 20px; }
+
+        .container { max-width: 900px; margin: 0 auto 100px; padding: 60px 20px; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; }
+        .voice-card { background: var(--white-glass); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; margin-bottom: 30px; display: flex; align-items: center; gap: 30px; width: 100%; }
+        .voice-icon { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold); background-size: cover; background-position: center; flex-shrink: 0; }
+        .voice-content { flex-grow: 1; }
+        .voice-text { font-style: italic; margin-bottom: 15px; opacity: 0.9; text-align: justify; }
+        .voice-author { color: var(--gold); font-weight: bold; font-size: 0.9rem; }
+        .author-meta { display: block; font-weight: normal; opacity: 0.6; font-size: 0.8rem; }
+
+        .btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; letter-spacing: 0.2rem; transition: var(--transition); background: transparent; cursor: pointer; font-family: inherit; }
+        .btn:hover { background: var(--gold); color: var(--indigo); }
+
+        footer { width: 100%; padding: 60px 20px; background: #050C16; text-align: center; font-size: 0.8rem; opacity: 0.6; }
+        .footer-links a { color: var(--text); text-decoration: none; margin: 0 15px; }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; } .logo { font-size: 1.2rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: var(--indigo); flex-direction: column; justify-content: center; transition: 0.4s; }
+            .nav-menu.open { right: 0; } .nav-menu a { margin: 20px 0; font-size: 1.2rem; }
+            .hamburger { display: flex; }
+            .voice-card { flex-direction: column; text-align: center; padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body onclick="closeMenu(event)">
+    <header>
+        <a href="index.html" class="logo">結 -MUSUBI-</a>
+        <nav class="nav-menu" id="navMenu">
+            <a href="about.html">物語と手法</a>
+            <a href="report_info.html">解析書の全容</a>
+            <a href="faq.html">よくある質問</a>
+            <a href="testimonials.html">解読者の声</a>
+            <a href="contact.html">お問い合わせ</a>
+            <a href="index.html#input-form" class="highlight" style="border: 1px solid var(--gold); padding: 5px 15px; border-radius: 2px;">解析の刻を始める</a>
+        </nav>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu(event)"><span></span><span></span><span></span></div>
+    </header>
+
+    <section class="hero-subpage">
+        <h1 class="page-title">解読者たちの声</h1>
+        <p style="letter-spacing: 0.2rem; opacity: 0.8;">魂の共鳴、新たな人生の始まり</p>
+    </section>
+
+    <div class="container">
+        <div class="voice-card">
+            <div class="voice-icon" style="background-image: url('image/Paper(火).png');"></div>
+            <div class="voice-content">
+                <div class="voice-text">「自分でも気づかなかった心の奥底の願いが、驚くほど正確に言語化されていて鳥肌が立ちました。迷っていた起業のタイミングについて、明確な指針をもらえた気がします。」</div>
+                <div class="voice-author">S.K 様 <span class="author-meta">30代・起業家（火の属性）</span></div>
+            </div>
+        </div>
+        <div class="voice-card">
+            <div class="voice-icon" style="background-image: url('image/Paper(水).png');');"></div>
+            <div class="voice-content">
+                <div class="voice-text">「20,000文字というボリュームに圧倒されましたが、一気に読んでしまいました。単なる占いではなく、自分の取り扱い説明書を手に入れた感覚です。」</div>
+                <div class="voice-author">M.T 様 <span class="author-meta">20代・デザイナー（水の属性）</span></div>
+            </div>
+        </div>
+        <div class="voice-card">
+            <div class="voice-icon" style="background-image: url('image/Paper(風).png');"></div>
+            <div class="voice-content">
+                <div class="voice-text">「パートナーシップの章を読んで、なぜ今まで人間関係で躓いていたのかが腑に落ちました。今は宿命のマントラを毎日唱えて、穏やかな気持ちで過ごせています。」</div>
+                <div class="voice-author">A.H 様 <span class="author-meta">40代・会社員（風の属性）</span></div>
+            </div>
+        </div>
+        <div class="voice-card">
+            <div class="voice-icon" style="background-image: url('image/Paper(土).png');"></div>
+            <div class="voice-content">
+                <div class="voice-text">「属性に合わせたデザインの美しさに感動しました。内容も深く、何度も読み返しています。人生の岐路に立つすべての人に勧めたいです。」</div>
+                <div class="voice-author">K.N 様 <span class="author-meta">50代・経営者（地の属性）</span></div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="index.html" class="btn">ホームに戻る</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links"><a href="index.html">ホーム</a><a href="legal.html#sctl">特定商取引法</a><a href="legal.html#privacy">個人情報保護</a></div>
+        <p>© 結 -MUSUBI- 宿命の解析</p>
+    </footer>
+
+    <script>
+        function toggleMenu(e) { e.stopPropagation(); document.getElementById('navMenu').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('active'); }
+        function closeMenu(e) { const nav = document.getElementById('navMenu'); if (nav.classList.contains('open')) { nav.classList.remove('open'); } }
+    </script>
+</body>
+</html>

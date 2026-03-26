@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物語と解析手法 - 結 -MUSUBI-</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap');
+        :root { --indigo: #0A192F; --gold: #D4AF37; --gold-light: rgba(212, 175, 55, 0.15); --text: #F5F5F5; --white-glass: rgba(255, 255, 255, 0.05); --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--indigo); color: var(--text); font-family: 'Shippori Mincho', serif; line-height: 1.8; overflow-x: hidden; }
+        header { position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: linear-gradient(to bottom, rgba(10, 25, 47, 0.8), transparent); backdrop-filter: blur(5px); }
+        .logo { font-size: 1.5rem; letter-spacing: 0.3rem; color: var(--gold); font-weight: bold; text-decoration: none; white-space: nowrap; }
+        .nav-menu { display: flex; align-items: center; }
+        .nav-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; margin-left: 30px; opacity: 0.7; transition: var(--transition); }
+        .nav-menu a:hover { opacity: 1; color: var(--gold); }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 101; }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--gold); }
+
+        .hero-subpage { height: 50vh; background: linear-gradient(rgba(10, 25, 47, 0.6), rgba(10, 25, 47, 0.6)), url('image/About.png'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
+        .page-title { font-size: clamp(2rem, 5vw, 3rem); color: var(--gold); letter-spacing: 0.5rem; margin-bottom: 20px; }
+
+        .container { max-width: 1000px; margin: 0 auto 100px; padding: 60px 20px; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; }
+        .content-card { background: var(--white-glass); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: clamp(30px, 5vw, 60px); margin-bottom: 40px; width: 100%; }
+        .content-image { width: 100%; height: auto; margin-bottom: 30px; border: 1px solid var(--gold-light); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h2 { color: var(--gold); margin-bottom: 30px; border-bottom: 1px solid var(--gold-light); padding-bottom: 10px; letter-spacing: 0.2rem; }
+        h3 { color: var(--gold); font-size: 1.2rem; margin-top: 30px; margin-bottom: 15px; }
+        p { margin-bottom: 25px; opacity: 0.9; text-align: justify; }
+        .highlight { color: var(--gold); font-weight: bold; }
+
+        .btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; letter-spacing: 0.2rem; transition: var(--transition); background: transparent; cursor: pointer; font-family: inherit; }
+        .btn:hover { background: var(--gold); color: var(--indigo); }
+        .btn-fill { background: var(--gold); color: var(--indigo); width: 100%; font-weight: bold; text-align: center; }
+
+        footer { width: 100%; padding: 60px 20px; background: #050C16; text-align: center; font-size: 0.8rem; opacity: 0.6; }
+        .footer-links a { color: var(--text); text-decoration: none; margin: 0 15px; }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; } .logo { font-size: 1.2rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: var(--indigo); flex-direction: column; justify-content: center; transition: 0.4s; }
+            .nav-menu.open { right: 0; } .nav-menu a { margin: 20px 0; font-size: 1.2rem; }
+            .hamburger { display: flex; }
+        }
+    </style>
+</head>
+<body onclick="closeMenu(event)">
+    <header>
+        <a href="index.html" class="logo">結 -MUSUBI-</a>
+        <nav class="nav-menu" id="navMenu">
+            <a href="about.html">物語と手法</a>
+            <a href="report_info.html">解析書の全容</a>
+            <a href="faq.html">よくある質問</a>
+            <a href="testimonials.html">解読者の声</a>
+            <a href="contact.html">お問い合わせ</a>
+            <a href="index.html#input-form" class="highlight" style="border: 1px solid var(--gold); padding: 5px 15px; border-radius: 2px;">解析の刻を始める</a>
+        </nav>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu(event)"><span></span><span></span><span></span></div>
+    </header>
+
+    <section class="hero-subpage">
+        <h1 class="page-title">物語と解析手法</h1>
+        <p style="letter-spacing: 0.2rem; opacity: 0.8;">古の叡智と、現代の知性が交差する場所</p>
+    </section>
+
+    <div class="container">
+        <div class="content-card">
+            <h2>紡がれる物語</h2>
+            <p>古来、人は星を読み、数字に意味を見出し、己の宿命を解き明かそうとしてきました。しかし、溢れる情報の海の中で、真実の自分を見失ってしまうことも少なくありません。</p>
+            <p><span class="highlight">「結 -MUSUBI-」</span>は、迷える現代の魂を、本来あるべき輝かしい道筋へと結び直すために誕生しました。これは単なる占いではなく、あなたという存在が宇宙に刻んだ「独自の設計図」を再発見する儀式です。</p>
+            <p>私たちが提供するのは、一時の慰めではありません。一生涯の航海を支える「揺るぎない羅針盤」であり、あなたが困難に直面した時に立ち戻るべき「魂の故郷」です。</p>
+        </div>
+
+        <div class="content-card">
+            <h2>三位一体の解析ロジック</h2>
+            <p>「結 -MUSUBI-」の解析は、数千年の歴史を持つ神秘主義と、現代の高度な数理分析を融合させた、独自の「三位一体」ロジックに基づいています。</p>
+            
+            <h3>1. ピタゴラス数秘術 (Pythagorean Numerology)</h3>
+            <img src="image/Numerology.png" alt="Numerology" class="content-image">
+            <p>「万物の根源は数である」という古代ギリシャの哲人ピタゴラスの思想を継承。あなたの氏名と生年月日から算出される独自の周波数を、LPN（ライフパスナンバー）として抽出します。これはあなたの魂が今世で選んだ「初期設定」であり、生涯変わることのない絶対的な資質を定義します。</p>
+
+            <h3>2. ユニバーサル・サイクル・マトリクス (Universal Cycle Matrix)</h3>
+            <img src="image/Cycle_Matrix.png" alt="Cycle Matrix" class="content-image">
+            <p>人生は直線的な時間ではなく、螺旋状の周期（サイクル）で動いています。私たちは独自の「マトリクス解析」を用いて、あなたが現在9年周期のどの位置にあり、どのようなエネルギーの潮流の中にいるかを精密に特定します。これにより、「今、何をすべきか」「いつ動くべきか」という戦略的な決断が可能になります。</p>
+
+            <h3>3. ソーラー・サイン・アライメント (Solar Sign Alignment / 占星術)</h3>
+            <img src="image/Astrology.png" alt="Astrology" class="content-image">
+            <p>伝統的な「西洋占星術」の知恵を、現代の解釈で再構築しました。誕生時の太陽の配置から、あなたの生命力の「源」となる4大元素（火・地・風・水）を照合します。これはあなたの感情の起伏や行動の傾向、そして他者との縁の結びつき方を支配する「環境の質」を明らかにします。</p>
+        </div>
+
+        <div class="content-card">
+            <h2>解析が目指すもの</h2>
+            <p>私たちは、あなたの未来を「予言」するのではなく、あなたが自らの意志で未来を「創造」するための武器を提供します。解析書を読み解くことは、あなたの中に眠る真のポテンシャルを解放し、宿命の波を乗りこなす知性を得ることに他なりません。</p>
+        </div>
+
+        <div style="text-align: center; width: 100%;">
+            <a href="index.html#input-form" class="btn btn-fill" style="max-width: 400px; display: inline-block;">解析の刻を始める</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links"><a href="index.html">ホーム</a><a href="legal.html#privacy">個人情報保護方針</a></div>
+        <p>© 結 -MUSUBI- 宿命の解析</p>
+    </footer>
+
+    <script>
+        function toggleMenu(e) { e.stopPropagation(); document.getElementById('navMenu').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('active'); }
+        function closeMenu(e) { const nav = document.getElementById('navMenu'); if (nav.classList.contains('open')) { nav.classList.remove('open'); } }
+    </script>
+</body>
+</html>
