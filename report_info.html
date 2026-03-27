@@ -4,39 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>解析書の全容 - 結 -MUSUBI-</title>
-    <link rel="icon" href="image/favicon.ico">
-    <meta property="og:title" content="解析書の全容 - 結 -MUSUBI-">
-    <meta property="og:description" content="全20章にわたる宿命鑑定書の構成と、各章で解き明かされる内容について。">
-    <meta property="og:image" content="image/OGP.PNG">
-    <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap');
         :root { --indigo: #0A192F; --gold: #D4AF37; --gold-light: rgba(212, 175, 55, 0.15); --text: #F5F5F5; --white-glass: rgba(255, 255, 255, 0.05); --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--indigo); color: var(--text); font-family: 'Shippori Mincho', serif; line-height: 1.8; }
+        body { background-color: var(--indigo); color: var(--text); font-family: 'Shippori Mincho', serif; line-height: 1.8; overflow-x: hidden; }
         header { position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: linear-gradient(to bottom, rgba(10, 25, 47, 0.8), transparent); backdrop-filter: blur(5px); }
         .logo { font-size: 1.5rem; letter-spacing: 0.3rem; color: var(--gold); font-weight: bold; text-decoration: none; white-space: nowrap; }
         .nav-menu { display: flex; align-items: center; }
         .nav-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; margin-left: 30px; opacity: 0.7; transition: var(--transition); }
         .nav-menu a:hover { opacity: 1; color: var(--gold); }
+        .highlight { color: var(--gold); font-weight: bold; }
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 101; }
         .hamburger span { width: 25px; height: 2px; background-color: var(--gold); }
 
         .hero-subpage { height: 50vh; background: linear-gradient(rgba(10, 25, 47, 0.6), rgba(10, 25, 47, 0.6)), url('image/Report_info.png'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
         .page-title { font-size: clamp(2rem, 5vw, 3rem); color: var(--gold); letter-spacing: 0.5rem; margin-bottom: 20px; }
 
-        .container { max-width: 1000px; margin: 0 auto 100px; padding: 60px 20px; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .info-card { background: var(--white-glass); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; transition: var(--transition); }
-        .info-card:hover { border-color: var(--gold-light); transform: translateY(-5px); }
-        .chapter-num { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.2rem; margin-bottom: 10px; display: block; }
-        .chapter-title { font-size: 1.4rem; color: var(--gold); margin-bottom: 20px; border-bottom: 1px solid var(--gold-light); padding-bottom: 10px; }
-        .chapter-desc { font-size: 0.9rem; opacity: 0.8; }
+        .container { max-width: 1000px; margin: 0 auto 100px; padding: 60px 20px; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; }
+        .content-card { background: var(--white-glass); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: clamp(30px, 5vw, 60px); margin-bottom: 40px; width: 100%; }
+        h2 { color: var(--gold); margin-bottom: 30px; border-bottom: 1px solid var(--gold-light); padding-bottom: 10px; letter-spacing: 0.2rem; }
 
-        footer { padding: 60px 20px; background: #050C16; text-align: center; font-size: 0.8rem; opacity: 0.6; }
-        .footer-links { margin-bottom: 15px; }
+        /* CHAPTER LIST */
+        .chapter-preview { background: rgba(212, 175, 55, 0.05); border: 1px solid var(--gold-light); padding: 40px 30px; margin-top: 20px; margin-bottom: 40px; width: 100%; }
+        .chapter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; margin-top: 30px; }
+        .chapter-item { border-left: 2px solid var(--gold-light); padding-left: 15px; transition: var(--transition); }
+        .chapter-item:hover { border-left-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
+        .chap-num { font-size: 0.7rem; color: var(--gold); opacity: 0.7; display: block; margin-bottom: 5px; }
+        .chap-name { font-weight: bold; color: var(--text); font-size: 1rem; display: block; margin-bottom: 8px; }
+        .chap-desc { font-size: 0.8rem; opacity: 0.6; line-height: 1.6; }
+
+        /* SAMPLE GALLERY */
+        .sample-gallery { width: 100%; perspective: 1000px; margin: 60px 0; height: 300px; display: flex; align-items: center; justify-content: center; }
+        .carousel-container { width: 200px; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 1s; animation: rotateCarousel 20s infinite linear; }
+        .carousel-item { position: absolute; width: 200px; height: 280px; left: 0; top: 0; border: none; border-radius: 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); backface-visibility: hidden; }
+        .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+        .carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(180px); }
+        .carousel-item:nth-child(2) { transform: rotateY(90deg) translateZ(180px); }
+        .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(180px); }
+        .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(180px); }
+
+        @keyframes rotateCarousel { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+        .btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; letter-spacing: 0.2rem; transition: var(--transition); background: transparent; cursor: pointer; font-family: inherit; }
+        .btn:hover { background: var(--gold); color: var(--indigo); }
+        .btn-fill { background: var(--gold); color: var(--indigo); width: 100%; font-weight: bold; text-align: center; }
+
+        footer { width: 100%; padding: 60px 20px; background: #050C16; text-align: center; font-size: 0.8rem; opacity: 0.6; }
         .footer-links a { color: var(--text); text-decoration: none; margin: 0 15px; }
 
         @media (max-width: 768px) {
@@ -44,6 +58,14 @@
             .nav-menu { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: var(--indigo); flex-direction: column; justify-content: center; transition: 0.4s; }
             .nav-menu.open { right: 0; } .nav-menu a { margin: 20px 0; font-size: 1.2rem; }
             .hamburger { display: flex; }
+            .chapter-grid { grid-template-columns: 1fr; }
+            .sample-gallery { height: 250px; }
+            .carousel-container { width: 150px; height: 210px; }
+            .carousel-item { width: 150px; height: 210px; }
+            .carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(130px); }
+            .carousel-item:nth-child(2) { transform: rotateY(90deg) translateZ(130px); }
+            .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(130px); }
+            .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(130px); }
         }
     </style>
 </head>
@@ -63,54 +85,64 @@
 
     <section class="hero-subpage">
         <h1 class="page-title">解析書の全容</h1>
-        <p style="letter-spacing: 0.2rem; opacity: 0.8;">全20章、数万字に及ぶあなただけの宿命全書</p>
+        <p style="letter-spacing: 0.2rem; opacity: 0.8;">一生涯の指針となる、20,000文字の叙事詩</p>
     </section>
 
     <div class="container">
-        <div class="info-grid">
-            <div class="info-card"><span class="chapter-num">CHAPTER 01</span><h3 class="chapter-title">魂の設計図</h3><p class="chapter-desc">あなたの本質、宿命数、守護属性から導き出される「人生の初期設定」を解読します。</p></div>
-            <div class="info-card"><span class="chapter-num">CHAPTER 02</span><h3 class="chapter-title">影の側面とカルマ</h3><p class="chapter-desc">無意識に繰り返してしまう失敗のパターンや、今世で解消すべき魂の負債について明らかにします。</p></div>
-            <div class="info-card"><span class="chapter-num">CHAPTER 03</span><h3 class="chapter-title">今年のバイオリズム</h3><p class="chapter-desc">ユニバーサル・サイクル・マトリクスに基づき、現在のあなたが置かれている運命の潮目を特定します。</p></div>
-            <div class="info-card"><span class="chapter-num">CHAPTER 04</span><h3 class="chapter-title">富の器（金運）</h3><p class="chapter-desc">あなたが生まれ持った財の性質と、最も効率的に富を蓄積するための具体的なルートを提示します。</p></div>
-            <div class="info-card"><span class="chapter-num">CHAPTER 05</span><h3 class="chapter-title">聖なる結びつき</h3><p class="chapter-desc">生涯を通じてあなたを支え、高めてくれる「真実の縁」の正体とその特徴を詳述します。</p></div>
-            <div class="info-card"><span class="chapter-num">... AND MORE</span><h3 class="chapter-title">第20章まで続く深層</h3><p class="chapter-desc">ビジネス戦略、家系の徳、晩年の運勢、そしてあなたを救う究極のマントラまで、全20章を網羅します。</p></div>
+        <div class="content-card">
+            <h2>宿命を20の側面から紐解く</h2>
+            <p>お届けする「宿命全書」は、あなたの魂が宇宙に刻んだ微細な振動を、精密に言語化した唯一無二の報告書です。</p>
+            
+            <div class="chapter-preview">
+                <p style="font-size: 1.2rem; color: var(--gold); letter-spacing: 0.2rem; text-align: center; font-weight: bold; border-bottom: 1px solid var(--gold-light); padding-bottom: 15px;">【全20章】宿命全書の構成</p>
+                <div class="chapter-grid">
+                    <div class="chapter-item"><span class="chap-num">Chapter 01</span><span class="chap-name">魂の設計図</span><p class="chap-desc">あなたの本質的な性質と、この世での根本的な役割を明らかにします。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 02</span><span class="chap-name">影の側面とカルマ</span><p class="chap-desc">無意識のブレーキとなっている課題と、それを力に変える術を伝えます。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 03</span><span class="chap-name">今年のバイオリズム</span><p class="chap-desc">12ヶ月の運気の流れを詳細に予測し、攻めるべき時期を特定します。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 04</span><span class="chap-name">富の器（金運）</span><p class="chap-desc">あなた固有の富を引き寄せるパターンと、経済的自由への道筋を解析します。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 05</span><span class="chap-name">聖なる結びつき</span><p class="chap-desc">魂レベルで共鳴するパートナーの特徴と、現在の縁の状態を紐解きます。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 06</span><span class="chap-name">黄金の勝機</span><p class="chap-desc">人生を劇的に好転させる、今後最大のチャンスが訪れる時期を算出します。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 07</span><span class="chap-name">宿命のリセット</span><p class="chap-desc">古い自分を脱ぎ捨て、新たなステージへ移行するための転換点を示します。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 08</span><span class="chap-name">10年間の航海図</span><p class="chap-desc">短期的な流行に左右されない、今後10年の長期的な成長ロードマップです。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 09</span><span class="chap-name">ビジネス戦略</span><p class="chap-desc">あなたの才能が最も効率的に「価値」へ変わる職業的ポジションを特定します。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 10</span><span class="chap-name">血統と家系の徳</span><p class="chap-desc">先祖から受け継いだ目に見えない守護と、継承すべきギフトについて。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 11</span><span class="chap-name">活力のマネジメント</span><p class="chap-desc">あなたの精神を支える肉体のケアと、エネルギーの充電方法をアドバイス。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 12</span><span class="chap-name">影響力と言語</span><p class="chap-desc">他者の心に響くあなたの独自の「伝え方」と、説得の力について解析します。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 13</span><span class="chap-name">創造性の源泉</span><p class="chap-desc">行き詰まりを打破し、アイデアを形にするための魂の解放条件を探ります。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 14</span><span class="chap-name">宿命の地理学</span><p class="chap-desc">あなたを活性化させる土地や、幸運を招く環境について詳しく解説します。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 15</span><span class="chap-name">過去の昇華</span><p class="chap-desc">潜在意識に残る古い痛みを癒し、自由な未来へ踏み出すためのガイダンス。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 16</span><span class="chap-name">パートナーシップ</span><p class="chap-desc">恋愛に限らず、あなたの人生を拡大させる協力者との関係性を深掘りします。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 17</span><span class="chap-name">直感とギフト</span><p class="chap-desc">あなたに備わった第6感や、独自のインスピレーションの活かし方を伝えます。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 18</span><span class="chap-name">危機管理と再生</span><p class="chap-desc">困難に直面した際の立ち直り方と、それを飛躍のバネにする方法を指南。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 19</span><span class="chap-name">5つの絶対的行動</span><p class="chap-desc">運命の歯車を動かすために、今日から始めるべき具体的なアクションプラン。</p></div>
+                    <div class="chapter-item"><span class="chap-num">Chapter 20</span><span class="chap-name">究極のマントラ</span><p class="chap-desc">あなたが本来の輝きを取り戻し続けるための、魂の刻印となる言葉を贈ります。</p></div>
+                </div>
+            </div>
+
+            <div class="sample-gallery">
+                <div class="carousel-container">
+                    <div class="carousel-item"><img src="sample/Sample(火).png" alt="火"></div>
+                    <div class="carousel-item"><img src="sample/Sample(水).png" alt="水"></div>
+                    <div class="carousel-item"><img src="sample/Sample(風).png" alt="風"></div>
+                    <div class="carousel-item"><img src="sample/Sample(地).png" alt="地"></div>
+                </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--gold); margin-top: -10px; margin-bottom: 40px; letter-spacing: 0.1rem; text-align: center;">属性に合わせた4つのパーソナル・デザイン</p>
+
+            <p>各章は約1,000文字のボリュームで構成され、読み終える頃には、あなたの人生に対する視界は劇的にクリアになっているはずです。</p>
+        </div>
+
+        <div style="text-align: center; width: 100%;">
+            <a href="index.html#input-form" class="btn btn-fill" style="max-width: 400px; display: inline-block;">解析の刻を始める</a>
         </div>
     </div>
 
     <footer>
-        <div class="footer-links">
-            <a href="index.html">ホーム</a>
-            <a href="#" onclick="showPrivacy(event)">個人情報保護方針</a>
-            <a href="#" onclick="showSctl(event)" style="font-size: 0.7rem; opacity: 0.6;">特定商取引法に基づく表記</a>
-        </div>
+        <div class="footer-links"><a href="index.html">ホーム</a><a href="legal.html#sctl">特定商取引法</a><a href="legal.html#privacy">個人情報保護</a></div>
         <p>© 結 -MUSUBI- 宿命の解析</p>
     </footer>
 
-    <!-- プライバシーポリシー モーダル -->
-    <div id="privacy-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,25,47,0.95); z-index:2000; overflow-y:auto; padding:60px 20px;">
-        <div style="max-width:800px; margin:0 auto; background:var(--white-glass); padding:40px; border:1px solid var(--gold-light); position:relative;">
-            <button onclick="closePrivacy()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">×</button>
-            <h2 style="color:var(--gold); margin-bottom:30px;">個人情報保護方針</h2>
-            <p style="font-size:0.9rem;">（詳細は index.html の規定に準じます）</p>
-        </div>
-    </div>
-
-    <!-- 特定商取引法 モーダル -->
-    <div id="sctl-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,25,47,0.95); z-index:2000; overflow-y:auto; padding:60px 20px;">
-        <div style="max-width:800px; margin:0 auto; background:var(--white-glass); padding:40px; border:1px solid var(--gold-light); position:relative;">
-            <button onclick="closeSctl()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">×</button>
-            <h2 style="color:var(--gold); margin-bottom:30px; font-size: 1.2rem;">特定商取引法に基づく表記</h2>
-            <div style="font-size: 0.85rem; line-height: 1.8;">
-                <p>三浦 聖斗<br>東京都渋谷区東3丁目16番3号<br>03-4588-4267<br>詳細はSTORESの商品ページをご確認ください。</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        function showPrivacy(e) { e.preventDefault(); document.getElementById('privacy-modal').style.display = 'block'; }
-        function closePrivacy() { document.getElementById('privacy-modal').style.display = 'none'; }
-        function showSctl(e) { e.preventDefault(); document.getElementById('sctl-modal').style.display = 'block'; }
-        function closeSctl() { document.getElementById('sctl-modal').style.display = 'none'; }
         function toggleMenu(e) { e.stopPropagation(); document.getElementById('navMenu').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('active'); }
         function closeMenu(e) { const nav = document.getElementById('navMenu'); if (nav.classList.contains('open')) { nav.classList.remove('open'); } }
     </script>

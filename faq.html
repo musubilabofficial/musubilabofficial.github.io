@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT0NFMSM5H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WT0NFMSM5H');
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w2d30ea4iw");
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>よくある質問 - 結 -MUSUBI-</title>
@@ -40,7 +57,7 @@
         .btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; letter-spacing: 0.2rem; transition: var(--transition); background: transparent; cursor: pointer; font-family: inherit; }
         .btn:hover { background: var(--gold); color: var(--indigo); }
 
-        footer { width: 100%; padding: 60px 20px; background: #050C16; text-align: center; font-size: 0.8rem; opacity: 0.6; }
+        footer { padding: 60px 20px; background: #050C16; text-align: center; font-size: 0.8rem; opacity: 0.6; }
         .footer-links { margin-bottom: 15px; }
         .footer-links a { color: var(--text); text-decoration: none; margin: 0 15px; }
 
@@ -83,10 +100,11 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="no-print">
         <div class="footer-links">
-            <a href="index.html">ホーム</a>
-            <a href="#" onclick="showPrivacy(event)">個人情報保護方針</a>
+            <a href="index.html" style="font-size: 0.7rem; opacity: 0.6;">ホーム</a>
+            <a href="about.html" style="font-size: 0.7rem; opacity: 0.6;">MUSUBIについて</a>
+            <a href="#" onclick="showPrivacy(event)" style="font-size: 0.7rem; opacity: 0.6;">個人情報保護方針</a>
             <a href="#" onclick="showSctl(event)" style="font-size: 0.7rem; opacity: 0.6;">特定商取引法に基づく表記</a>
         </div>
         <p>© 結 -MUSUBI- 宿命の解析</p>
@@ -100,12 +118,12 @@
             <p style="margin-bottom:20px; font-size:0.9rem;">「結 -MUSUBI-」（以下、当サービス）は、お客様からお預かりする個人情報を、以下の通り適切に管理・保護いたします。</p>
             <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">1. 個人情報の収集・利用目的</h3>
             <p style="margin-bottom:20px; font-size:0.9rem;">当サービスは、宿命解析書の作成、およびサービス提供に関する連絡、お問合せへの回答のために、お名前、生年月日、メールアドレス等の個人情報を収集いたします。</p>
-            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">2. 個人情報の管理</h3>
+            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">2. アクセス解析ツールについて</h3>
+            <p style="margin-bottom:20px; font-size:0.9rem;">当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」および「Microsoft Clarity」を利用しています。これらはトラフィックデータの収集のためにクッキー（Cookie）を使用しています。このデータは匿名で収集されており、個人を特定するものではありません。</p>
+            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">3. 個人情報の管理</h3>
             <p style="margin-bottom:20px; font-size:0.9rem;">お客様の個人情報は、不正アクセス、紛失、破壊、改ざん、漏えい等が起こらないよう、厳重に管理いたします。鑑定書の納品後は、一定期間（1ヶ月）を経て適切に消去いたします。</p>
-            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">3. 第三者への開示・提供の禁止</h3>
+            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">4. 第三者への開示・提供の禁止</h3>
             <p style="margin-bottom:20px; font-size:0.9rem;">当サービスは、法令に基づき開示することが必要である場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
-            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">4. ご本人による照会</h3>
-            <p style="margin-bottom:20px; font-size:0.9rem;">お客様がご本人の個人情報の照会・修正・削除などをご希望される場合には、ご本人であることを確認の上、速やかに対応させていただきます。</p>
             <p style="margin-top:40px; font-size:0.8rem; opacity:0.6;">お問い合わせ先: musubi.lab.official@gmail.com</p>
         </div>
     </div>
@@ -115,7 +133,6 @@
         <div style="max-width:800px; margin:0 auto; background:var(--white-glass); padding:40px; border:1px solid var(--gold-light); position:relative;">
             <button onclick="closeSctl()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">×</button>
             <h2 style="color:var(--gold); margin-bottom:30px; font-size: 1.2rem;">特定商取引法に基づく表記</h2>
-            
             <div style="font-size: 0.85rem; line-height: 1.8;">
                 <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">販売価格について</h3>
                 <p>販売価格は、表示された金額（表示価格・消費税込）とします。<br>デジタルコンテンツという性質上、配送料は発生いたしません。なお、コンビニ決済や銀行振込を選択された際の振込手数料等はお客様のご負担となります。</p>
@@ -136,7 +153,6 @@
         function closePrivacy() { document.getElementById('privacy-modal').style.display = 'none'; }
         function showSctl(e) { e.preventDefault(); document.getElementById('sctl-modal').style.display = 'block'; }
         function closeSctl() { document.getElementById('sctl-modal').style.display = 'none'; }
-
         function toggleMenu(e) { e.stopPropagation(); document.getElementById('navMenu').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('active'); }
         function closeMenu(e) { const nav = document.getElementById('navMenu'); if (nav.classList.contains('open')) { nav.classList.remove('open'); } }
     </script>
