@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>結 -MUSUBI- 宿命の解析</title>
+    <!-- Favicon -->
+    <link rel="icon" href="image/favicon.ico">
+    <!-- OGP -->
+    <meta property="og:title" content="結 -MUSUBI- 宿命の解析">
+    <meta property="og:description" content="古の叡智と、現代の知性が交差する場所。あなただけの宿命設計図を解読します。">
+    <meta property="og:image" content="image/OGP.PNG">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap');
 
@@ -285,13 +293,13 @@
                     <div class="price-card">
                         <div class="plan-title">【第1章〜5章】簡易鑑定書</div>
                         <div class="price-val">¥3,000</div>
-                        <button class="btn" style="padding: 10px; font-size: 0.7rem; width: 100%;">簡易版を閲覧する</button>
+                        <a href="https://musubi-lab.stores.jp/items/69c04cf9d9171143c6e5e2e3" class="btn" style="padding: 10px; font-size: 0.7rem; width: 100%; text-decoration: none; display: inline-block;">簡易版を閲覧する</a>
                     </div>
                     <div class="price-card featured">
                         <div class="plan-title" style="color: var(--gold);">【全20章：宿命全書】</div>
                         <div class="old-price">通常 ¥14,800</div>
                         <div class="price-val">¥9,800</div>
-                        <button class="btn btn-fill" style="padding: 10px; font-size: 0.7rem;">完全版を解読する</button>
+                        <a href="https://musubi-lab.stores.jp/items/69bfd2c32ce5f6fe330be3c2" class="btn btn-fill" style="padding: 10px; font-size: 0.7rem; text-decoration: none; display: inline-block;">完全版を解読する</a>
                     </div>
                 </div>
             </div>
@@ -301,7 +309,11 @@
     </section>
 
     <footer class="no-print">
-        <div class="footer-links"><a href="about.html">MUSUBIについて</a><a href="#" onclick="showPrivacy(event)">個人情報保護方針</a></div>
+        <div class="footer-links">
+            <a href="about.html">MUSUBIについて</a>
+            <a href="#" onclick="showPrivacy(event)">個人情報保護方針</a>
+            <a href="#" onclick="showSctl(event)" style="font-size: 0.7rem; opacity: 0.6;">特定商取引法に基づく表記</a>
+        </div>
         <p>© 結 -MUSUBI- 宿命の解析</p>
     </footer>
 
@@ -323,12 +335,44 @@
         </div>
     </div>
 
+    <!-- 特定商取引法 モーダル -->
+    <div id="sctl-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,25,47,0.95); z-index:2000; overflow-y:auto; padding:60px 20px;">
+        <div style="max-width:800px; margin:0 auto; background:var(--white-glass); padding:40px; border:1px solid var(--gold-light); position:relative;">
+            <button onclick="closeSctl()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">×</button>
+            <h2 style="color:var(--gold); margin-bottom:30px; font-size: 1.2rem;">特定商取引法に基づく表記</h2>
+            
+            <div style="font-size: 0.85rem; line-height: 1.8;">
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">販売価格について</h3>
+                <p>販売価格は、表示された金額（表示価格・消費税込）とします。<br>デジタルコンテンツという性質上、配送料は発生いたしません。なお、コンビニ決済や銀行振込を選択された際の振込手数料等はお客様のご負担となります。</p>
+
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">代金(対価)の支払時期と方法</h3>
+                <p>■ 支払方法：クレジットカード、コンビニ決済、あと払い（ペイディ）、PayPal、銀行振込、キャリア決済、楽天ペイ、PayPay残高がご利用いただけます。<br>
+                ■ 支払時期：クレジットカード等は商品ご注文時点でお支払いが確定します。コンビニ決済、銀行振込は商品注文時点から約3日間の期限内にお支払いください。</p>
+
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">返品についての特約事項</h3>
+                <p>商品の性質上（デジタルコンテンツおよび個別鑑定サービス）、お支払い確定後のキャンセル・返品・返金には一切応じられません。万が一、ファイルに不備があった場合はお問い合わせ先までご連絡ください。</p>
+
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">役務または商品の引き渡し時期</h3>
+                <p>①導入ガイド（PDF）: 決済完了後、即座にダウンロードいただけます。<br>
+                ②宿命鑑定書（本編）: ご購入後、解析に必要な情報をご提供いただいてから、通常 24時間〜72時間以内 にご登録のメールアドレス宛にPDFファイルにて納品いたします。</p>
+
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">事業者の名称および連絡先</h3>
+                <p>代表者：三浦 聖斗<br>
+                所在地：〒150-0011 東京都渋谷区東3丁目16番3号 エフ・ニッセイ恵比寿ビル4階<br>
+                電話番号：03-4588-4267（平日 10:00~18:00）<br>
+                <span style="font-size: 0.7rem; opacity: 0.7;">※所在地・電話番号には STORES を運営する STORES 株式会社の情報が表示されています。</span></p>
+            </div>
+        </div>
+    </div>
+
     <div id="loading"><div style="width: 80px; height: 80px; border: 1px solid var(--gold-light); border-top: 1px solid var(--gold); border-radius: 50%; animation: spin 2s linear infinite;"></div><p style="margin-top: 30px; color: var(--gold); letter-spacing: 0.3rem;" id="loading-text">深層解析中...</p></div>
 
     <script src="destiny_engine.js"></script>
     <script>
         function showPrivacy(e) { e.preventDefault(); document.getElementById('privacy-modal').style.display = 'block'; }
         function closePrivacy() { document.getElementById('privacy-modal').style.display = 'none'; }
+        function showSctl(e) { e.preventDefault(); document.getElementById('sctl-modal').style.display = 'block'; }
+        function closeSctl() { document.getElementById('sctl-modal').style.display = 'none'; }
         
         function toggleMenu(e) {
             e.stopPropagation();

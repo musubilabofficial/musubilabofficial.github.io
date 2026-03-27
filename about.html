@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>物語と解析手法 - 結 -MUSUBI-</title>
+    <!-- Favicon -->
+    <link rel="icon" href="image/favicon.ico">
+    <!-- OGP -->
+    <meta property="og:title" content="物語と解析手法 - 結 -MUSUBI-">
+    <meta property="og:description" content="古の叡智と、現代の知性が交差する場所。三位一体の解析ロジックについて解説します。">
+    <meta property="og:image" content="image/OGP.PNG">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap');
         :root { --indigo: #0A192F; --gold: #D4AF37; --gold-light: rgba(212, 175, 55, 0.15); --text: #F5F5F5; --white-glass: rgba(255, 255, 255, 0.05); --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -33,6 +42,7 @@
         .btn-fill { background: var(--gold); color: var(--indigo); width: 100%; font-weight: bold; text-align: center; }
 
         footer { width: 100%; padding: 60px 20px; background: #050C16; text-align: center; font-size: 0.8rem; opacity: 0.6; }
+        .footer-links { margin-bottom: 15px; }
         .footer-links a { color: var(--text); text-decoration: none; margin: 0 15px; }
 
         @media (max-width: 768px) {
@@ -98,11 +108,58 @@
     </div>
 
     <footer>
-        <div class="footer-links"><a href="index.html">ホーム</a><a href="legal.html#privacy">個人情報保護方針</a></div>
+        <div class="footer-links">
+            <a href="index.html">ホーム</a>
+            <a href="#" onclick="showPrivacy(event)">個人情報保護方針</a>
+            <a href="#" onclick="showSctl(event)" style="font-size: 0.7rem; opacity: 0.6;">特定商取引法に基づく表記</a>
+        </div>
         <p>© 結 -MUSUBI- 宿命の解析</p>
     </footer>
 
+    <!-- プライバシーポリシー モーダル -->
+    <div id="privacy-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,25,47,0.95); z-index:2000; overflow-y:auto; padding:60px 20px;">
+        <div style="max-width:800px; margin:0 auto; background:var(--white-glass); padding:40px; border:1px solid var(--gold-light); position:relative;">
+            <button onclick="closePrivacy()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">×</button>
+            <h2 style="color:var(--gold); margin-bottom:30px;">個人情報保護方針（プライバシーポリシー）</h2>
+            <p style="margin-bottom:20px; font-size:0.9rem;">「結 -MUSUBI-」（以下、当サービス）は、お客様からお預かりする個人情報を、以下の通り適切に管理・保護いたします。</p>
+            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">1. 個人情報の収集・利用目的</h3>
+            <p style="margin-bottom:20px; font-size:0.9rem;">当サービスは、宿命解析書の作成、およびサービス提供に関する連絡、お問合せへの回答のために、お名前、生年月日、メールアドレス等の個人情報を収集いたします。</p>
+            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">2. 個人情報の管理</h3>
+            <p style="margin-bottom:20px; font-size:0.9rem;">お客様の個人情報は、不正アクセス、紛失、破壊、改ざん、漏えい等が起こらないよう、厳重に管理いたします。鑑定書の納品後は、一定期間（1ヶ月）を経て適切に消去いたします。</p>
+            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">3. 第三者への開示・提供の禁止</h3>
+            <p style="margin-bottom:20px; font-size:0.9rem;">当サービスは、法令に基づき開示することが必要である場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
+            <h3 style="color:var(--gold); font-size:1rem; margin-top:20px;">4. ご本人による照会</h3>
+            <p style="margin-bottom:20px; font-size:0.9rem;">お客様がご本人の個人情報の照会・修正・削除などをご希望される場合には、ご本人であることを確認の上、速やかに対応させていただきます。</p>
+            <p style="margin-top:40px; font-size:0.8rem; opacity:0.6;">お問い合わせ先: musubi.lab.official@gmail.com</p>
+        </div>
+    </div>
+
+    <!-- 特定商取引法 モーダル -->
+    <div id="sctl-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,25,47,0.95); z-index:2000; overflow-y:auto; padding:60px 20px;">
+        <div style="max-width:800px; margin:0 auto; background:var(--white-glass); padding:40px; border:1px solid var(--gold-light); position:relative;">
+            <button onclick="closeSctl()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">×</button>
+            <h2 style="color:var(--gold); margin-bottom:30px; font-size: 1.2rem;">特定商取引法に基づく表記</h2>
+            <div style="font-size: 0.85rem; line-height: 1.8;">
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">販売価格について</h3>
+                <p>販売価格は、表示された金額（表示価格・消費税込）とします。<br>デジタルコンテンツという性質上、配送料は発生いたしません。なお、コンビニ決済や銀行振込を選択された際の振込手数料等はお客様のご負担となります。</p>
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">代金(対価)の支払時期と方法</h3>
+                <p>■ 支払方法：クレジットカード、コンビニ決済、あと払い（ペイディ）、PayPal、銀行振込、キャリア決済、楽天ペイ、PayPay残高がご利用いただけます。<br>■ 支払時期：クレジットカード等は商品ご注文時点でお支払いが確定します。コンビニ決済、銀行振込は商品注文時点から約3日間の期限内にお支払いください。</p>
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">返品についての特約事項</h3>
+                <p>商品の性質上（デジタルコンテンツおよび個別鑑定サービス）、お支払い確定後のキャンセル・返品・返金には一切応じられません。万が一、ファイルに不備があった場合はお問い合わせ先までご連絡ください。</p>
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">役務または商品の引き渡し時期</h3>
+                <p>①導入ガイド（PDF）: 決済完了後、即座にダウンロードいただけます。<br>②宿命鑑定書（本編）: ご購入後、解析に必要な情報をご提供いただいてから、通常 24時間〜72時間以内 にご登録のメールアドレス宛にPDFファイルにて納品いたします。</p>
+                <h3 style="color:var(--gold); font-size:0.9rem; margin-top:20px;">事業者の名称および連絡先</h3>
+                <p>代表者：三浦 聖斗<br>所在地：〒150-0011 東京都渋谷区東3丁目16番3号 エフ・ニッセイ恵比寿ビル4階<br>電話番号：03-4588-4267（平日 10:00~18:00）<br><span style="font-size: 0.7rem; opacity: 0.7;">※所在地・電話番号には STORES を運営する STORES 株式会社の情報が表示されています。</span></p>
+            </div>
+        </div>
+    </div>
+
     <script>
+        function showPrivacy(e) { e.preventDefault(); document.getElementById('privacy-modal').style.display = 'block'; }
+        function closePrivacy() { document.getElementById('privacy-modal').style.display = 'none'; }
+        function showSctl(e) { e.preventDefault(); document.getElementById('sctl-modal').style.display = 'block'; }
+        function closeSctl() { document.getElementById('sctl-modal').style.display = 'none'; }
+
         function toggleMenu(e) { e.stopPropagation(); document.getElementById('navMenu').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('active'); }
         function closeMenu(e) { const nav = document.getElementById('navMenu'); if (nav.classList.contains('open')) { nav.classList.remove('open'); } }
     </script>
