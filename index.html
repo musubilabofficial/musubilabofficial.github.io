@@ -198,7 +198,7 @@
             <a href="faq.html">よくある質問</a>
             <a href="testimonials.html">解読者の声</a>
             <a href="contact.html">お問い合わせ</a>
-            <a href="#input-form" class="highlight" style="border: 1px solid var(--gold); padding: 5px 15px; border-radius: 2px;">解析の刻を始める</a>
+            <a href="javascript:void(0)" onclick="showInput()" class="highlight" style="border: 1px solid var(--gold); padding: 5px 15px; border-radius: 2px;">解析の刻を始める</a>
         </nav>
         <div class="hamburger" id="hamburger" onclick="toggleMenu(event)">
             <span></span>
@@ -209,8 +209,163 @@
 
     <section id="hero" class="active">
         <h1 class="hero-title">宿命の解析</h1>
-        <p class="hero-sub">時を越えて紡がれる、あなただけの縁を解き明かす</p>
+        <p style="color: var(--gold); letter-spacing: 0.3rem; margin-bottom: 10px; font-weight: bold; font-size: 0.9rem;">
+            占星術 × 数秘術 × 統計解析
+        </p>
+        <p class="hero-sub">あなたという存在が宇宙に刻んだ、唯一無二の設計図をデコードする。</p>
         <button class="btn" onclick="showInput()">解析の刻を始める</button>
+        
+        <div style="margin-top: 60px; font-size: 0.8rem; letter-spacing: 0.2rem; opacity: 0.7; border: 1px solid rgba(212, 175, 55, 0.3); padding: 15px 30px; display: inline-block; background: rgba(255,255,255,0.02);">
+            運命の歯車が回りだす、次の転換点まで<br>
+            <span style="font-size: 1.2rem; color: var(--gold); font-weight: bold;" id="countdown-timer">残りわずか</span>
+        </div>
+    </section>
+
+    <!-- 追加：手法・コンセプトセクション -->
+    <section id="methodology" class="active" style="background: #050C16;">
+        <div style="max-width: 1000px; width: 100%; margin: 0 auto; text-align: center;">
+            <h2 style="color: var(--gold); font-size: 1.5rem; margin-bottom: 60px; letter-spacing: 0.5rem;">三位一体の解析ロジック</h2>
+            
+            <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left;">
+                <div style="background: var(--white-glass); padding: 30px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="image/Numerology.png" alt="数秘術" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; border: 1px solid var(--gold-light);">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;">1. 数秘術</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.8; opacity: 0.8;">生年月日と氏名から「LPN（ライフパスナンバー）」を算出。あなたの魂が今世で選んだ資質と役割を数値化します。</p>
+                </div>
+                <div style="background: var(--white-glass); padding: 30px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="image/Cycle_Matrix.png" alt="サイクル" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; border: 1px solid var(--gold-light);">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;">2. サイクル解析</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.8; opacity: 0.8;">人生の9年周期を「マトリクス」として捉え、あなたが現在どの潮流の中にあり、次に向かうべき場所を特定します。</p>
+                </div>
+                <div style="background: var(--white-glass); padding: 30px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="image/Astrology.png" alt="占星術" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; border: 1px solid var(--gold-light);">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;">3. 占星術</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.8; opacity: 0.8;">太陽の配置から「4大元素」を照合。あなたの感情のリズム、対人関係の傾向、そして生命力の源泉を解読します。</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px;">
+                <p style="margin-bottom: 30px; opacity: 0.7;">今日、この瞬間にアクセスしたことも、統計的な必然です。</p>
+                <button class="btn btn-fill" onclick="showInput()" style="max-width: 300px;">自分の宿命を解読する</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 追加：全20章ロードマップセクション -->
+    <section id="roadmap" class="active" style="background: #050C16; border-top: 1px solid var(--gold-light); padding: 100px 20px;">
+        <div style="max-width: 1100px; width: 100%; margin: 0 auto; text-align: center;">
+            <h2 style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 0.5rem;">解読される、20の真実</h2>
+            <p style="margin-bottom: 60px; font-size: 0.9rem; opacity: 0.8; letter-spacing: 0.1rem;">宿命鑑定書『結 -MUSUBI-』が網羅する、人生の全設計図</p>
+
+            <style>
+                .roadmap-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
+                .phase-card { 
+                    padding: 45px; 
+                    position: relative; 
+                    transition: var(--transition); 
+                    border: 1px solid rgba(212, 175, 55, 0.2);
+                    backdrop-filter: blur(10px);
+                    overflow: hidden;
+                }
+                
+                /* Phase Colors & Patterns */
+                .phase-01 { background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(20, 40, 80, 0.95)); border-bottom: 3px solid #1a3a6c; }
+                .phase-02 { background: linear-gradient(135deg, rgba(40, 10, 10, 0.95), rgba(80, 20, 20, 0.95)); border-bottom: 3px solid #7a1a1a; }
+                .phase-03 { background: linear-gradient(135deg, rgba(10, 40, 25, 0.95), rgba(20, 80, 40, 0.95)); border-bottom: 3px solid #1a6c3a; }
+                .phase-04 { background: linear-gradient(135deg, rgba(30, 10, 40, 0.95), rgba(60, 20, 80, 0.95)); border-bottom: 3px solid #5a1a6c; }
+
+                .phase-card::before {
+                    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                    opacity: 0.03; pointer-events: none;
+                    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+PHBhdGggZD0iTTAgMzBMMTUgMEwzMCAzMEwxNSAyNlowIiBmaWxsPSIjZmZmIi8+PC9zdmc+'); /* 簡易的な和柄パターン */
+                }
+
+                .phase-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+                .phase-num { position: absolute; top: 20px; right: 25px; font-size: 0.65rem; color: var(--gold); opacity: 0.6; letter-spacing: 0.3rem; font-weight: bold; }
+                .phase-title { color: var(--gold); font-size: 1.2rem; margin-bottom: 30px; display: flex; align-items: center; letter-spacing: 0.2rem; }
+                .phase-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin-left: 20px; opacity: 0.4; }
+                .chapter-list { list-style: none; padding: 0; }
+                .chapter-list li { font-size: 0.9rem; margin-bottom: 15px; opacity: 0.8; padding-left: 25px; position: relative; line-height: 1.4; }
+                .chapter-list li::before { content: "◈"; color: var(--gold); position: absolute; left: 0; font-size: 0.8rem; top: 2px; }
+                
+                @media (max-width: 768px) {
+                    .roadmap-container { grid-template-columns: 1fr; gap: 20px; }
+                    .phase-card { padding: 35px 25px; }
+                    .phase-title { font-size: 1.1rem; }
+                }
+            </style>
+
+            <!-- サンプルギャラリーを上部に配置 -->
+            <div class="sample-gallery" style="margin-top: 0; margin-bottom: 30px;">
+                <div class="carousel-container">
+                    <div class="carousel-item"><img src="sample/Sample(火).png" alt="火"></div>
+                    <div class="carousel-item"><img src="sample/Sample(水).png" alt="水"></div>
+                    <div class="carousel-item"><img src="sample/Sample(風).png" alt="風"></div>
+                    <div class="carousel-item"><img src="sample/Sample(地).png" alt="地"></div>
+                </div>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1rem; opacity: 0.8; text-align: center; margin-bottom: 80px;">
+                属性に合わせた、あなただけのパーソナル・デザイン
+            </p>
+
+            <div class="roadmap-container">
+                <!-- Phase 1 -->
+                <div class="phase-card phase-01">
+                    <span class="phase-num">PHASE 01</span>
+                    <h3 class="phase-title">魂の根源</h3>
+                    <ul class="chapter-list">
+                        <li>1. 魂の設計図（宿命の核）</li>
+                        <li>2. 影の側面とカルマ（負債）</li>
+                        <li>3. 今年のバイオリズム（潮目）</li>
+                        <li>4. 富の器（生まれ持った金運）</li>
+                        <li>5. 聖なる結びつき（真実の縁）</li>
+                    </ul>
+                </div>
+                <!-- Phase 2 -->
+                <div class="phase-card phase-02">
+                    <span class="phase-num">PHASE 02</span>
+                    <h3 class="phase-title">運命の潮流</h3>
+                    <ul class="chapter-list">
+                        <li>6. 黄金の勝機（好機を掴む時）</li>
+                        <li>7. 宿命のリセット（再生の刻）</li>
+                        <li>8. 10年間の航海図（長期展望）</li>
+                        <li>9. ビジネス戦略（天職と適性）</li>
+                        <li>10. 血統と家系の徳（継承する力）</li>
+                    </ul>
+                </div>
+                <!-- Phase 3 -->
+                <div class="phase-card phase-03">
+                    <span class="phase-num">PHASE 03</span>
+                    <h3 class="phase-title">現世の攻略</h3>
+                    <ul class="chapter-list">
+                        <li>11. 活力のマネジメント（心身）</li>
+                        <li>12. 影響力と言語（対人交渉）</li>
+                        <li>13. 創造性の源泉（自己表現）</li>
+                        <li>14. 宿命の地理学（吉方位と場所）</li>
+                        <li>15. 過去の昇華（トラウマの解消）</li>
+                    </ul>
+                </div>
+                <!-- Phase 4 -->
+                <div class="phase-card phase-04">
+                    <span class="phase-num">PHASE 04</span>
+                    <h3 class="phase-title">究極の真理</h3>
+                    <ul class="chapter-list">
+                        <li>16. 高次のパートナーシップ</li>
+                        <li>17. 直感とギフト（霊的な資質）</li>
+                        <li>18. 危機管理と再生（逆境の力）</li>
+                        <li>19. 5つの絶対的行動（成功法則）</li>
+                        <li>20. 究極のマントラ（魂の誓い）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 80px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <button class="btn btn-fill" onclick="showInput()" style="max-width: 400px; width: 100%; font-weight: bold; font-size: 1rem; border: none; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);">
+                    まずは第1章を無料で占ってみる
+                </button>
+                <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.5; text-align: center;">※解析結果はブラウザ上で即座に表示されます</p>
+            </div>
+        </div>
     </section>
 
     <section id="input-form">
@@ -260,7 +415,7 @@
                         <p style="color: var(--gold); margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 0.1rem;">
                             守護属性、現在周期、深層リフレクションを解読するには<br>SNSでの共鳴が必要です。
                         </p>
-                        <button class="btn btn-sns" onclick="shareAndUnlock()">SNSで共有して「第1章 全文」を解読する</button>
+                        <button class="btn btn-sns" onclick="showSnsModal()">SNSで共有して「第1章 全文」を解読する</button>
                     </div>
                 </div>
             </div>
@@ -333,6 +488,7 @@
 
     <footer class="no-print">
         <div class="footer-links">
+            <a href="index.html" style="font-size: 0.7rem; opacity: 0.6;">ホーム</a>
             <a href="about.html" style="font-size: 0.7rem; opacity: 0.6;">MUSUBIについて</a>
             <a href="#" onclick="showPrivacy(event)" style="font-size: 0.7rem; opacity: 0.6;">個人情報保護方針</a>
             <a href="#" onclick="showSctl(event)" style="font-size: 0.7rem; opacity: 0.6;">特定商取引法に基づく表記</a>
@@ -395,8 +551,33 @@
 
     <div id="loading"><div style="width: 80px; height: 80px; border: 1px solid var(--gold-light); border-top: 1px solid var(--gold); border-radius: 50%; animation: spin 2s linear infinite;"></div><p style="margin-top: 30px; color: var(--gold); letter-spacing: 0.3rem;" id="loading-text">深層解析中...</p></div>
 
+    <!-- SNSシェア選択モーダル -->
+    <div id="sns-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,25,47,0.95); z-index:2500; justify-content:center; align-items:center; padding:20px;">
+        <div style="max-width:400px; width:100%; background:var(--white-glass); padding:40px; border:1px solid var(--gold-light); text-align:center; position:relative;">
+            <button onclick="closeSnsModal()" style="position:absolute; top:15px; right:15px; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">×</button>
+            <h3 style="color:var(--gold); margin-bottom:30px; font-size:1rem; letter-spacing:0.2rem;">共鳴するメディアを選択</h3>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                <button onclick="shareTo('x')" style="background:#000; color:white; padding:15px; border:none; cursor:pointer; font-weight:bold; font-size:0.8rem;">X (Twitter)</button>
+                <button onclick="shareTo('line')" style="background:#06C755; color:white; padding:15px; border:none; cursor:pointer; font-weight:bold; font-size:0.8rem;">LINE</button>
+                <button onclick="shareTo('fb')" style="background:#1877F2; color:white; padding:15px; border:none; cursor:pointer; font-weight:bold; font-size:0.8rem;">Facebook</button>
+                <button onclick="shareTo('ig')" style="background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color:white; padding:15px; border:none; cursor:pointer; font-weight:bold; font-size:0.8rem;">Instagram</button>
+            </div>
+            <p style="margin-top:25px; font-size:0.7rem; opacity:0.6;">シェア画面を開くと、数秒後に封印が解除されます。</p>
+        </div>
+    </div>
+
     <script src="destiny_engine.js"></script>
     <script>
+        window.onload = function() {
+            // 運命の転換点（ユニバーサル・サイクルに基づく動的な演出）
+            const now = new Date();
+            const days = 7 - (now.getDate() % 7) || 7; // 周期性を持たせる
+            const timerElement = document.getElementById('countdown-timer');
+            if (timerElement) {
+                timerElement.innerText = `あと ${days} 日`;
+            }
+        };
+
         function showPrivacy(e) { e.preventDefault(); document.getElementById('privacy-modal').style.display = 'block'; }
         function closePrivacy() { document.getElementById('privacy-modal').style.display = 'none'; }
         function showSctl(e) { e.preventDefault(); document.getElementById('sctl-modal').style.display = 'block'; }
@@ -416,7 +597,13 @@
             }
         }
 
-        function showInput() { document.getElementById('hero').classList.remove('active'); document.getElementById('input-form').classList.add('active'); window.scrollTo(0,0); }
+        function showInput() { 
+            document.getElementById('hero').classList.remove('active'); 
+            document.getElementById('methodology').classList.remove('active'); 
+            document.getElementById('roadmap').classList.remove('active'); 
+            document.getElementById('input-form').classList.add('active'); 
+            window.scrollTo(0,0); 
+        }
         
         function startAnalysis() {
             const name = document.getElementById('userName').value || '貴方';
@@ -455,17 +642,41 @@
             }, 6500);
         }
 
-        function shareAndUnlock() {
+        function showSnsModal() { document.getElementById('sns-modal').style.display = 'flex'; }
+        function closeSnsModal() { document.getElementById('sns-modal').style.display = 'none'; }
+
+        function shareTo(platform) {
             const text = "宿命鑑定書『結 -MUSUBI-』で、自分の魂の設計図を解読しました。";
             const url = window.location.href;
-            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-            const shareWindow = window.open(twitterUrl, '_blank', 'width=600,height=400');
-            if (shareWindow) {
-                setTimeout(() => {
-                    document.getElementById('mosaic-blur').style.display = 'none';
-                    alert("魂の共鳴が確認されました。第1章の封印を解除します。");
-                }, 3000);
+            let shareUrl = "";
+
+            if (platform === 'x') shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+            if (platform === 'line') shareUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
+            if (platform === 'fb') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            if (platform === 'ig') {
+                // Instagramは直接投稿不可のためリンクコピー
+                navigator.clipboard.writeText(url);
+                alert("URLをコピーしました。Instagramのストーリーズ等でシェアしてください。");
+                unlockChapter();
+                closeSnsModal();
+                return;
             }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+                unlockChapter();
+                closeSnsModal();
+            }
+        }
+
+        function unlockChapter() {
+            setTimeout(() => {
+                const blurOverlay = document.getElementById('mosaic-blur');
+                if (blurOverlay) {
+                    blurOverlay.style.display = 'none';
+                    alert("魂の共鳴が確認されました。第1章の封印を解除します。");
+                }
+            }, 3000);
         }
 
         function renderReport(name, result) {
